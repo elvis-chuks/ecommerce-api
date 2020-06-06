@@ -22,6 +22,7 @@ func main() {
 
 	http.HandleFunc("/", test)
 	http.HandleFunc("/v1/addproduct", controllers.AddProduct)
+	http.HandleFunc("/v1/getallproducts", controllers.GetAllProducts)
 
 	port := os.Getenv("PORT")
 	if port == "" {

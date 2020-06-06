@@ -14,6 +14,8 @@ type Category struct {
 	Name string `json:"name,omitempty"`
 }
 
+type Resp map[string]interface{}
+
 // https://api.flickr.com/services
 // Key:
 // 5b6cb2eeb1a833e847cfbcc972c6c27c
