@@ -11,8 +11,6 @@ func test(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	
-
 	http.HandleFunc("/", test)
 
 	port := os.Getenv("PORT")
