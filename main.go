@@ -11,7 +11,7 @@ func test(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fmt.Println("Ecommerce api")
+	
 
 	http.HandleFunc("/", test)
 
@@ -21,6 +21,8 @@ func main() {
 	}
 
 	port = fmt.Sprintf(":"+"%s", port)
+
+	fmt.Println(fmt.Sprintf("app running on http://localhost%s",port))
 
 	if err := http.ListenAndServe(port, nil); err != nil {
 		fmt.Println(err)
