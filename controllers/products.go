@@ -41,7 +41,7 @@ func AddProduct(w http.ResponseWriter, r *http.Request){
 			http.Error(w,fmt.Sprintf(`{"status":"error","msg":%s}`,err.Error()),400)
 		}
 		
-		json.NewEncoder(w).Encode(`{"status":"success"}`)
+		json.NewEncoder(w).Encode(models.Resp{"status":"success"})
 		return
 	}
 	http.Error(w, `{"status":"error","msg":"method not allowed"}`,400)
