@@ -1,4 +1,4 @@
 test.py
 *.json
-upload.go
+# upload.go
 index.html
