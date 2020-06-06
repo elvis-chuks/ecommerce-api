@@ -6,4 +6,30 @@ import (
 	"encoding/json"
 
 	"github.com/elvis-chuks/ecommerce-api/models"
+	"github.com/elvis-chuks/ecommerce-api/helpers"
 )
+
+
+func AddProduct(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("content-type","application/json")
+	helpers.SetupResponse(&w,r)
+	if (*r).Method == "OPTIONS" {
+		return
+	}
+	if r.Method == "POST"{
+		var product models.Product
+
+		_ = json.NewDecoder(r.Body).Decode(&product)
+
+		// fmt.Println(product)
+
+		err := helpers.Upload(product.Image)
+		if err != nil {
+			http.Error(w,fmt.Sprintf(`{"status":"error","msg":%s}`,err.Error()),400)
+		}
+
+		json.NewEncoder(w).Encode(`{"status":"success"}`)
+		return
+	}
+	http.Error(w, `{"status":"error","msg":"method not allowed"}`,400)
+}

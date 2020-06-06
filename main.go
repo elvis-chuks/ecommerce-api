@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+
+	"github.com/elvis-chuks/ecommerce-api/helpers"
+	"github.com/elvis-chuks/ecommerce-api/controllers"
 )
 
 func test(w http.ResponseWriter, r *http.Request) {
@@ -11,7 +14,15 @@ func test(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	er := helpers.InitTables()
+
+	if er != nil {
+		panic(er)
+	}
+
 	http.HandleFunc("/", test)
+	http.HandleFunc("/v1/addproduct", controllers.AddProduct)
 
 	port := os.Getenv("PORT")
 	if port == "" {

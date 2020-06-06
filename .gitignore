@@ -1,1 +1,4 @@
 test.py
+*.json
+upload.go
+index.html
