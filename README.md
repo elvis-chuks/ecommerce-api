@@ -142,3 +142,45 @@ typical response
     "msg":"cause of error"
 }
 ```
+
+### Add Product
+
+request body 
+
+```json
+{
+    "id":"1",
+    "name":"shirt",
+    "category":"2",
+    "quantity":"4",
+    "price":"200",
+}
+```
+
+typical response 
+
+```json
+{
+    "status":"success"
+}
+{
+    "status":"error",
+    "msg":"cause of error"
+}
+```
+
+### Get all categories
+make a get request to this endpoint ***/v1/getcategories***
+
+typical response 
+
+```json
+{
+    "status":"success",
+    "categories":[]
+}
+{
+    "status":"error",
+    "msg":"cause of error"
+}
+```
