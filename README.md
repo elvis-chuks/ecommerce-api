@@ -69,7 +69,7 @@ typical response
 }
 ```
 ### Get all products
-
+make a get request to this endpoint ***/v1/getallproducts***
 <!-- request body 
 
 ```json
@@ -82,6 +82,29 @@ typical response
 }
 ``` -->
 <!-- ***The image field should contain a base64 encoded image*** -->
+
+typical response 
+
+```json
+{
+    "status":"success",
+    "products":[]
+}
+{
+    "status":"error",
+    "msg":"cause of error"
+}
+```
+
+### Add Product
+ - Post request
+request body 
+
+```json
+{
+    "category":"2",
+}
+```
 
 typical response 
 
