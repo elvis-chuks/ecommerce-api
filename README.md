@@ -68,3 +68,30 @@ typical response
     "msg":"cause of error"
 }
 ```
+### Get all products
+
+<!-- request body 
+
+```json
+{
+    "name":"shirt",
+    "category":"2",
+    "quantity":"4",
+    "price":"200",
+    "image":"kksus//skhs"
+}
+``` -->
+<!-- ***The image field should contain a base64 encoded image*** -->
+
+typical response 
+
+```json
+{
+    "status":"success",
+    "products":[]
+}
+{
+    "status":"error",
+    "msg":"cause of error"
+}
+```
