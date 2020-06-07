@@ -34,6 +34,9 @@ func InitTables() error {
 	query := fmt.Sprintf("CREATE TABLE IF NOT EXISTS products(id SERIAL PRIMARY KEY, category VARCHAR, name VARCHAR, quantity VARCHAR, price VARCHAR,image VARCHAR)")
 
 	_, err := db.Exec(query)
+	query = fmt.Sprintf("CREATE TABLE IF NOT EXISTS categories(id SERIAL PRIMARY KEY, name VARCHAR)")
+
+	_, err = db.Exec(query)
 
 	if err != nil {
 		return err
