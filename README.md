@@ -96,7 +96,7 @@ typical response
 }
 ```
 
-### Add Product
+### Get products by category
  - Post request
 request body 
 
@@ -112,6 +112,30 @@ typical response
 {
     "status":"success",
     "products":[]
+}
+{
+    "status":"error",
+    "msg":"cause of error"
+}
+```
+
+### Add Category
+
+- Post request
+
+request body 
+
+```json
+{
+    "name":"shoes",
+}
+```
+
+typical response 
+
+```json
+{
+    "status":"success"
 }
 {
     "status":"error",
