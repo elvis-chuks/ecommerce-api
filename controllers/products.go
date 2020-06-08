@@ -210,3 +210,34 @@ func UpdateProduct(w http.ResponseWriter, r *http.Request){
 	http.Error(w, `{"status":"error","msg":"method not allowed"}`,400)
 	return
 }
+
+func DeleteProduct(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("content-type","application/json")
+	helpers.SetupResponse(&w,r)
+	if (*r).Method == "OPTIONS" {
+		return
+	}
+	if r.Method == "DELETE"{
+		var product models.Product
+		_ = json.NewDecoder(r.Body).Decode(&product)
+		fmt.Println(product.Id)
+		if product.Id == 0 {
+			http.Error(w, `{"status":"error","msg":"id cannot be empty"}`,400)
+			return
+		}
+		db := helpers.InitDB()
+		defer db.Close()
+		
+		query := fmt.Sprintf(`DELETE FROM products WHERE id = '%d'`,product.Id)
+		_, err := db.Exec(query)
+
+		if err != nil {
+			http.Error(w, fmt.Sprintf(`{"status":"error","msg":"%s"}`,err.Error()),400)
+			return
+		}
+		json.NewEncoder(w).Encode(models.Resp{"status":"success"})
+		return
+	}
+	http.Error(w, `{"status":"error","msg":"method not allowed"}`,400)
+	return
+}

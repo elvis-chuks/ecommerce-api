@@ -24,8 +24,9 @@ func main() {
 	http.HandleFunc("/v1/addproduct", controllers.AddProduct)
 	http.HandleFunc("/v1/getallproducts", controllers.GetAllProducts)
 	http.HandleFunc("/v1/getproductsbycategory", controllers.GetProductsByCategory)
-	http.HandleFunc("/v1/addcategory", controllers.AddCategory)
 	http.HandleFunc("/v1/updateproduct", controllers.UpdateProduct)
+	http.HandleFunc("/v1/deleteproduct", controllers.DeleteProduct)
+	http.HandleFunc("/v1/addcategory", controllers.AddCategory)
 	http.HandleFunc("/v1/getcategories", controllers.GetAllCategories)
 
 	port := os.Getenv("PORT")

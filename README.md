@@ -24,8 +24,9 @@ go run main.go
 - Add product */v1/addproduct*
 - Get all products */v1/getallproducts*
 - Get products by category */v1/getproductsbycategory*
-- Add category */v1/addcategory*
 - Update product */v1/updateproduct*
+- Delete Product */v1/deleteproduct*
+- Add category */v1/addcategory*
 - Get categories */v1/getcategories*
 
 ## Response types
@@ -68,20 +69,29 @@ typical response
     "msg":"cause of error"
 }
 ```
-### Get all products
-make a get request to this endpoint ***/v1/getallproducts***
-<!-- request body 
+### Delete Product
+
+request body 
 
 ```json
 {
-    "name":"shirt",
-    "category":"2",
-    "quantity":"4",
-    "price":"200",
-    "image":"kksus//skhs"
+    "id": 1
 }
-``` -->
-<!-- ***The image field should contain a base64 encoded image*** -->
+```
+
+typical response 
+
+```json
+{
+    "status":"success"
+}
+{
+    "status":"error",
+    "msg":"cause of error"
+}
+```
+### Get all products
+make a get request to this endpoint ***/v1/getallproducts***
 
 typical response 
 
